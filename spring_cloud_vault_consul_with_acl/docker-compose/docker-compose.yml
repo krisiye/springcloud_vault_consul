@@ -3,7 +3,7 @@ version: "3.8"
 services:
   localstack:
     container_name: localstack
-    image: docker.br.hmheng.io/localstack/localstack:0.12.10
+    image: localstack/localstack:0.12.10
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
@@ -15,7 +15,7 @@ services:
 
   consul:
     container_name: consul
-    image: docker.br.hmheng.io/consul:1.9.5
+    image: consul:1.9.5
     ports:
       - "8500:8500/tcp"
     environment:
@@ -24,7 +24,7 @@ services:
 
   vault:
     container_name: vault
-    image: docker.br.hmheng.io/vault:1.3.2
+    image: vault:1.3.2
     ports:
       - "8200:8200"
     links:

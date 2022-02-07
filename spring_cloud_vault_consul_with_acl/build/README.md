@@ -77,10 +77,11 @@ The start up script starts the following containers:
 
 ```
 docker-compose % docker ps
-CONTAINER ID   IMAGE                                               COMMAND                  CREATED          STATUS          PORTS                                                                                         NAMES
-980b291bf577   docker.br.hmheng.io/vault:1.3.2                     "docker-entrypoint.s…"   37 seconds ago   Up 36 seconds   0.0.0.0:8200->8200/tcp, :::8200->8200/tcp                                                     vault
-631e4441e241   docker.br.hmheng.io/localstack/localstack:0.12.10   "docker-entrypoint.sh"   38 seconds ago   Up 37 seconds   4571/tcp, 0.0.0.0:4566->4566/tcp, :::4566->4566/tcp, 8080/tcp                                 localstack
-9f53470003f6   docker.br.hmheng.io/consul:1.9.5                    "docker-entrypoint.s…"   38 seconds ago   Up 37 seconds   8300-8302/tcp, 8301-8302/udp, 8600/tcp, 8600/udp, 0.0.0.0:8500->8500/tcp, :::8500->8500/tcp   consul
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS         PORTS                                                                      NAMES
+14b3d6c78e21   vault:1.3.2                     "docker-entrypoint.s…"   11 seconds ago   Up 7 seconds   0.0.0.0:8200->8200/tcp                                                     vault
+e03d59db74db   localstack/localstack:0.12.10   "docker-entrypoint.sh"   11 seconds ago   Up 9 seconds   4571/tcp, 0.0.0.0:4566->4566/tcp, 8080/tcp                                 localstack
+286bcb290cf2   consul:1.9.5                    "docker-entrypoint.s…"   11 seconds ago   Up 9 seconds   8300-8302/tcp, 8301-8302/udp, 8600/tcp, 8600/udp, 0.0.0.0:8500->8500/tcp   consul
+
 ```
 
 - Run the application against the local profile and verify against provided endpoints:
