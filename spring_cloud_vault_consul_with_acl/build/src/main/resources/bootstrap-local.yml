@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      config:
+        enabled: true
+        prefix: local/examples/${spring.application.name}
+        format: FILES
+    vault:
+      enabled: true
+      token: foo
+      host: 127.0.0.1
+      port: 8200
+      scheme: http
+      uri: http://127.0.0.1:8200/
+      config:
+        order: -10
+        lifecycle:
+          min-renewal: 1m
+          expiry-threshold: 5m
+      kv:
+        enabled: true
+        backend: secret/local/examples
+        application-name: ${spring.application.name}
+      consul:
+        enabled: true
+        role: consul-read-only
+        backend: consul
+        token-property: spring.cloud.consul.token
+      aws:
+        ttl: 15m
+        enabled: true
+        role: readonly-examples
+        backend: aws
+        credential-type: assumed_role
+        access-key-property: cloud.aws.credentials.accessKey
+        secret-key-property: cloud.aws.credentials.secretKey
+cloud:
+  aws:
+    region: us-east-1
+    s3:
+      endpoint: http://localhost:4566
+      bucket: example-s3
+      prefix: test-data/
+s3:
+  region: us-east-1

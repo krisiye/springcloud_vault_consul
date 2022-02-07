@@ -1,0 +1,9 @@
+foo:
+  foo1: bar1
+
+management:
+  metrics:
+    export:
+      datadog:
+        enabled: false
+        

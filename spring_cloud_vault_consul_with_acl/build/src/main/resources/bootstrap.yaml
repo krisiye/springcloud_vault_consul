@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-boot-example
+
+# disable consul watch and actuator refresh endpoint until we have a fix for https://github.com/spring-cloud/spring-cloud-vault/issues/607
+  cloud:
+    consul:
+      config:
+        watch:
+          enabled: false
+
+
+management:
+  endpoint:
+    refresh:
+      enabled: false
